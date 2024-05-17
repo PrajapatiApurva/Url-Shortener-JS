@@ -1,7 +1,7 @@
+require("dotenv").config();
 const mongoose=require('mongoose')
 
-let mongoUrl='mongodb://localhost:27017/UrlShortener'
-
+let mongoUrl= process.env.MONGODB_URL
 const connectDB=async()=>{
 
     await mongoose.connect(mongoUrl)
@@ -9,4 +9,6 @@ const connectDB=async()=>{
     .catch((err)=>{console.log(`Not Connected... ${err}`)})
 }
 
-module.exports={connectDB}
+// module.exports={connectDB}
+
+connectDB();
